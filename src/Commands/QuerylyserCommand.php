@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Ameheina\Querylyser\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class QuerylyserCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'querylyser';
 
     public $description = 'My command';
 
