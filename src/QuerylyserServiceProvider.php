@@ -2,9 +2,9 @@
 
 namespace Ameheina\Querylyser;
 
+use Ameheina\Querylyser\Commands\QuerylyserCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Ameheina\Querylyser\Commands\QuerylyserCommand;
 
 class QuerylyserServiceProvider extends PackageServiceProvider
 {

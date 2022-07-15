@@ -2,9 +2,9 @@
 
 namespace Ameheina\Querylyser\Tests;
 
+use Ameheina\Querylyser\QuerylyserServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Ameheina\Querylyser\QuerylyserServiceProvider;
 
 class TestCase extends Orchestra
 {
