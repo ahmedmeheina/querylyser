@@ -18,6 +18,7 @@ class LogQuery
         $loggedQuery = new LoggedQuery();
         $loggedQuery->sql = Querylyser::getQueryFromSqlAndBindings($query->sql, $query->bindings);
         $loggedQuery->time = $query->time;
+        $loggedQuery->backtrace = Querylyser::getBacktrace();
         $loggedQuery->save();
     }
 }

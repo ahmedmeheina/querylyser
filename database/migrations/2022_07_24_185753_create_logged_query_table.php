@@ -17,6 +17,7 @@ class CreateLoggedQueryTable extends Migration
             $table->id();
             $table->longText('sql');
             $table->double('time');
+            $table->string('backtrace');
             $table->timestamps();
         });
     }

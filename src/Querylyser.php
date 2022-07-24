@@ -34,8 +34,13 @@ class Querylyser
         return Str::startsWith(trim($sql), ['select', 'SELECT', 'Select']);
     }
 
-    public function getQueryFromSqlAndBindings(string $sql, array $bindings)
+    public function getQueryFromSqlAndBindings(string $sql, array $bindings): string
     {
         return Str::replaceArray('?', $bindings, $sql);
+    }
+
+    public function getBacktrace(): string
+    {
+        return implode(',',debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3));
     }
 }
