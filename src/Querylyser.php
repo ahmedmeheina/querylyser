@@ -41,6 +41,6 @@ class Querylyser
 
     public function getBacktrace(): string
     {
-        return implode(',',debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3));
+        return implode(',', debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3));
     }
 }
