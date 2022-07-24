@@ -65,7 +65,7 @@ class QuerylyserServiceProvider extends ServiceProvider
         });
 
         Artisan::call('migrate');
-        
+
         $this->app->register(EventServiceProvider::class);
     }
 }
