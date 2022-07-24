@@ -10,8 +10,7 @@ class LogQuery
 {
     public function handle(QueryExecuted $query)
     {
-        if(Cache::get('LogQueries') !== 'start')
-        {
+        if (Cache::get('LogQueries') !== 'start') {
             return;
         }
 

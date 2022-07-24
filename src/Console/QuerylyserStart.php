@@ -38,8 +38,8 @@ class QuerylyserStart extends Command
      */
     public function handle()
     {
-        Cache::put('LogQueries' , 'start');
-        
+        Cache::put('LogQueries', 'start');
+
         $this->info('Querylyser started...');
 
         return 0;
