@@ -2,8 +2,8 @@
 
 namespace AMeheina\Querylyser\Listeners;
 
-use Illuminate\Database\Events\QueryExecuted;
 use AMeheina\Querylyser\Models\LoggedQuery;
+use Illuminate\Database\Events\QueryExecuted;
 
 class LogQuery
 {
