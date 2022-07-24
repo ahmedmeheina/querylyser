@@ -10,4 +10,3 @@ class LoggedQuery extends Model
 
     protected $guarded = [];
 }
-
