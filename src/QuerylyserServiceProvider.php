@@ -5,6 +5,7 @@ namespace AMeheina\Querylyser;
 use AMeheina\Querylyser\Console\QuerylyserStart;
 use AMeheina\Querylyser\Console\QuerylyserStop;
 use AMeheina\Querylyser\Providers\EventServiceProvider;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
 class QuerylyserServiceProvider extends ServiceProvider
@@ -63,6 +64,8 @@ class QuerylyserServiceProvider extends ServiceProvider
             return new Querylyser;
         });
 
+        Artisan::call('migrate');
+        
         $this->app->register(EventServiceProvider::class);
     }
 }
