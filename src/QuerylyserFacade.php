@@ -1,11 +1,11 @@
 <?php
 
-namespace Ameheina\Querylyser;
+namespace AMeheina\Querylyser;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Ameheina\Querylyser\Skeleton\SkeletonClass
+ * @see \AMeheina\Querylyser\Skeleton\SkeletonClass
  */
 class QuerylyserFacade extends Facade
 {

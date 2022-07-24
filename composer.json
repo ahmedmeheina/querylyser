@@ -5,7 +5,7 @@
         "ameheina",
         "querylyser"
     ],
-    "homepage": "https://github.com/ameheina/querylyser",
+    "homepage": "https://github.com/ahmedmeheina/querylyser",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Ameheina\\Querylyser\\": "src"
+            "AMeheina\\Querylyser\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ameheina\\Querylyser\\Tests\\": "tests"
+            "AMeheina\\Querylyser\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -44,10 +44,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ameheina\\Querylyser\\QuerylyserServiceProvider"
+                "AMeheina\\Querylyser\\QuerylyserServiceProvider"
             ],
             "aliases": {
-                "Querylyser": "Ameheina\\Querylyser\\QuerylyserFacade"
+                "Querylyser": "AMeheina\\Querylyser\\QuerylyserFacade"
             }
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ameheina\Querylyser;
+namespace AMeheina\Querylyser;
 
 class Querylyser
 {
