@@ -5,7 +5,6 @@ namespace AMeheina\Querylyser;
 use AMeheina\Querylyser\Console\QuerylyserStart;
 use AMeheina\Querylyser\Console\QuerylyserStop;
 use AMeheina\Querylyser\Providers\EventServiceProvider;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
 class QuerylyserServiceProvider extends ServiceProvider
@@ -63,7 +62,7 @@ class QuerylyserServiceProvider extends ServiceProvider
         $this->app->singleton('querylyser', function () {
             return new Querylyser;
         });
-        
+
         $this->app->register(EventServiceProvider::class);
     }
 }
