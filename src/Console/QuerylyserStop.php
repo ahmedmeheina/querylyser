@@ -3,6 +3,7 @@
 namespace AMeheina\Querylyser\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 
 class QuerylyserStop extends Command
 {
@@ -37,6 +38,8 @@ class QuerylyserStop extends Command
      */
     public function handle()
     {
+        Cache::forget('LogQueries');
+
         $this->info('Querylyser stopped...');
         $this->info('Analysing your queries...');
 

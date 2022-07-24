@@ -63,8 +63,6 @@ class QuerylyserServiceProvider extends ServiceProvider
         $this->app->singleton('querylyser', function () {
             return new Querylyser;
         });
-
-        Artisan::call('migrate');
         
         $this->app->register(EventServiceProvider::class);
     }

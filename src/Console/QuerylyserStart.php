@@ -3,6 +3,7 @@
 namespace AMeheina\Querylyser\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 
 class QuerylyserStart extends Command
 {
@@ -37,6 +38,8 @@ class QuerylyserStart extends Command
      */
     public function handle()
     {
+        Cache::put('LogQueries' , 'start');
+        
         $this->info('Querylyser started...');
 
         return 0;
