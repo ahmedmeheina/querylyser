@@ -9,15 +9,15 @@ class Querylyser
 {
     public function canLogQuery($sql): bool
     {
-        if (Cache::get('LogQueries') !== 'start'){
+        if (Cache::get('LogQueries') !== 'start') {
             return false;
         }
 
-        if($this->isSelfQuery($sql)){
+        if ($this->isSelfQuery($sql)) {
             return false;
         }
 
-        if(!$this->isReadQuery($sql)){
+        if (! $this->isReadQuery($sql)) {
             return false;
         }
 

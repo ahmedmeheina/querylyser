@@ -3,15 +3,14 @@
 namespace AMeheina\Querylyser\Listeners;
 
 use AMeheina\Querylyser\Models\LoggedQuery;
-use Illuminate\Database\Events\QueryExecuted;
 use AMeheina\Querylyser\QuerylyserFacade as Querylyser;
+use Illuminate\Database\Events\QueryExecuted;
 
 class LogQuery
 {
     public function handle(QueryExecuted $query)
     {
-        if(!Querylyser::canLogQuery($query->sql))
-        {
+        if (! Querylyser::canLogQuery($query->sql)) {
             return;
         }
 
