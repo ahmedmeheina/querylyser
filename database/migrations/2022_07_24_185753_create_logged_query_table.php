@@ -15,7 +15,8 @@ class CreateLoggedQueryTable extends Migration
     {
         Schema::create('logged_query', function (Blueprint $table) {
             $table->id();
-            $table->longText('sql');
+            $table->longText('statement');
+            $table->longText('statement_with_bindings');
             $table->double('time');
             $table->string('backtrace');
             $table->timestamps();

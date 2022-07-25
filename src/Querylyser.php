@@ -2,12 +2,13 @@
 
 namespace AMeheina\Querylyser;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class Querylyser
 {
-    public function canLogQuery($sql): bool
+    public function isLoggable($sql): bool
     {
         if (Cache::get('LogQueries') !== 'start') {
             return false;
@@ -53,5 +54,14 @@ class Querylyser
             })
             ->first();
 
-        return $backtrace['file'].':'.$backtrace['line'];    }
+        return $backtrace['file'].':'.$backtrace['line'];
+    }
+
+    public function loadChecks(): Collection
+    {
+        return collect(config('querylyser.checks'))
+        ->map(function($check){
+            Str::title(Str::replace('_', '', $check));
+        });
+    }
 }

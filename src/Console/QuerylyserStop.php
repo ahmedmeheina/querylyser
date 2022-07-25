@@ -2,6 +2,7 @@
 
 namespace AMeheina\Querylyser\Console;
 
+use AMeheina\Querylyser\Models\LoggedQuery;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 
@@ -42,6 +43,15 @@ class QuerylyserStop extends Command
 
         $this->info('Querylyser stopped...');
         $this->info('Analysing your queries...');
+
+        $checks = Querylyser::loadChecks();
+
+        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks){
+            dump($query->statement_with_bindings);
+            $checks->each(function ($check) use ($checks) {
+                dump($check);
+            });
+        });
 
         return 0;
     }
