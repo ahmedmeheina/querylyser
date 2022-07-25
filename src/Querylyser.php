@@ -45,8 +45,7 @@ class Querylyser
         // to get exact query caller line, we need to find the first non-framework call from the php backtrace
         $backtrace = collect(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 0))
             ->reject(function ($value) {
-
-                if(!isset($value['file'])){
+                if (! isset($value['file'])) {
                     return true;
                 }
 
