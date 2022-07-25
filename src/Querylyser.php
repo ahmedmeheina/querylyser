@@ -59,7 +59,7 @@ class Querylyser
     public function loadChecks(): Collection
     {
         return collect(config('querylyser.checks'))
-            ->map(function($check){
+            ->map(function ($check) {
                 return Str::replace('_', '', Str::title($check));
             });
     }
