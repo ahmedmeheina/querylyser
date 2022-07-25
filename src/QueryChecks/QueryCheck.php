@@ -4,7 +4,7 @@ namespace AMeheina\Querylyser\QueryChecks;
 
 use AMeheina\Querylyser\Models\LoggedQuery;
 
-abstract class QueryCheckInterface
+abstract class QueryCheck
 {
     public function __construct(private LoggedQuery $query)
     {}

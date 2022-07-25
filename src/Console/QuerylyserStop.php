@@ -5,6 +5,7 @@ namespace AMeheina\Querylyser\Console;
 use AMeheina\Querylyser\Models\LoggedQuery;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
+use AMeheina\Querylyser\QuerylyserFacade as Querylyser;
 
 class QuerylyserStop extends Command
 {
@@ -48,8 +49,9 @@ class QuerylyserStop extends Command
 
         $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks){
             dump($query->statement_with_bindings);
-            $checks->each(function ($check) use ($checks) {
-                dump($check);
+            $checks->each(function ($checkClass) use ($checks, $query) {
+               $check = new $checkClass($query);
+                dump($check->passes(), $check->description, $check->fixRecommendation);
             });
         });
 
