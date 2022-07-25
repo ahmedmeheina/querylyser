@@ -46,9 +46,9 @@ class QuerylyserStop extends Command
 
         $checks = Querylyser::loadChecks();
 
-        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks){
+        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks) {
             dump($query->statement_with_bindings);
-            $checks->each(function ($check) use ($checks) {
+            $checks->each(function ($check) {
                 dump($check);
             });
         });
