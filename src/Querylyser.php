@@ -2,10 +2,10 @@
 
 namespace AMeheina\Querylyser;
 
+use AMeheina\Querylyser\Report\Generator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
-use AMeheina\Querylyser\Report\Generator;
 
 class Querylyser
 {
@@ -38,7 +38,7 @@ class Querylyser
 
     public function getQueryFromSqlAndBindings(string $sql, array $bindings): string
     {
-        return vsprintf(Str::replace('?', '\'%s\'', $sql),$bindings);
+        return vsprintf(Str::replace('?', '\'%s\'', $sql), $bindings);
     }
 
     public function getBacktrace(): string
@@ -60,8 +60,8 @@ class Querylyser
     public function loadChecks(): Collection
     {
         return collect(config('querylyser.checks'))
-            ->map(function($check){
-                return 'AMeheina\Querylyser\QueryChecks\\' . Str::replace('_', '', Str::title($check));
+            ->map(function ($check) {
+                return 'AMeheina\Querylyser\QueryChecks\\'.Str::replace('_', '', Str::title($check));
             });
     }
 
