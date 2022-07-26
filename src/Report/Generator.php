@@ -2,7 +2,6 @@
 
 namespace AMeheina\Querylyser\Report;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class Generator
@@ -61,6 +60,7 @@ class Generator
                     </div>
         ';
     }
+
     private function prepareStatistics($results): string
     {
         $scannedQueriesCount = $results->count();
@@ -136,13 +136,10 @@ class Generator
 
     private function prepareCards($results): string
     {
-
-        $cards = $results->map(function ($result){
+        $cards = $results->map(function ($result) {
             [$query , $checkresults] = $result;
 
-
-            ;
-            $card= '<div class="row">
+            $card = '<div class="row">
                     <div class="col-lg-12">
                         <div class="card shadow mb-4">
                             <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
@@ -152,14 +149,14 @@ class Generator
                             <div class="collapse show" id="collapseCardExample">
                                 <div class="card-body"><ul>';
 
-            $card.= '<li>Backtrace : '. $query->backtrace.'</li>';
-            $card.= '<li>Execution Time (sec): '. ($query->time / 1000).'</li>';
-            $card.= '<li>Checks :</li><ol>';
+            $card .= '<li>Backtrace : '.$query->backtrace.'</li>';
+            $card .= '<li>Execution Time (sec): '.($query->time / 1000).'</li>';
+            $card .= '<li>Checks :</li><ol>';
             foreach ($checkresults as $checkresult) {
-                $card.= '<li>'.last(explode('\\', $checkresult::class)) .' => '.
-                    ($checkresult->passes? '<label style="color:green;">Passes</label>' : '<label style="color:red;">Failed</label>' ).'</li>';
+                $card .= '<li>'.last(explode('\\', $checkresult::class)).' => '.
+                    ($checkresult->passes ? '<label style="color:green;">Passes</label>' : '<label style="color:red;">Failed</label>').'</li>';
             }
-            $card.= '
+            $card .= '
 </ol>
                                     </ul>
                                 </div>
@@ -167,6 +164,7 @@ class Generator
                         </div>
                     </div>
                 </div>';
+
             return $card;
         });
 

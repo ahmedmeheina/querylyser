@@ -49,16 +49,16 @@ class QuerylyserStop extends Command
 
         $results = collect();
 
-        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks, $results){
+        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks, $results) {
             $checkResults = $checks->map(function ($checkClass) use ($query) {
                 return new $checkClass($query);
             });
-            $results->push([$query , $checkResults]);
+            $results->push([$query, $checkResults]);
         });
 
         $reportPath = Querylyser::generateReport($results);
 
-        $this->info(" Completed!");
+        $this->info(' Completed!');
         $this->info('Your report is available in '.$reportPath);
 
         return 0;
