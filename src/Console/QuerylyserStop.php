@@ -3,9 +3,9 @@
 namespace AMeheina\Querylyser\Console;
 
 use AMeheina\Querylyser\Models\LoggedQuery;
+use AMeheina\Querylyser\QuerylyserFacade as Querylyser;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
-use AMeheina\Querylyser\QuerylyserFacade as Querylyser;
 
 class QuerylyserStop extends Command
 {

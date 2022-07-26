@@ -4,11 +4,11 @@
  * You can place your custom package configuration in here.
  */
 return [
-    'checks' =>[
+    'checks' => [
         'query_runtime',
         'n_plus_one',
         'full_table_scan',
     ],
 
-    'max_query_time' => '5000'
+    'max_query_time' => '5000',
 ];
