@@ -49,11 +49,11 @@ class QuerylyserStop extends Command
 
         $results = collect();
 
-        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks, $results){
-            $checkResults = $checks->map(function ($checkClass) use ($checks, $query) {
+        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks, $results) {
+            $checkResults = $checks->map(function ($checkClass) use ($query) {
                 return new $checkClass($query);
             });
-            $results->push([$query , $checkResults]);
+            $results->push([$query, $checkResults]);
         });
 
         Querylyser::generateReport($results);

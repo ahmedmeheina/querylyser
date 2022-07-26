@@ -6,6 +6,5 @@ class Generator
 {
     public function generate($results): string
     {
-        
     }
 }

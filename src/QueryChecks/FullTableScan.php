@@ -12,7 +12,7 @@ class FullTableScan extends QueryCheck
 
     public function passes(): bool
     {
-        return !collect(DB::select('EXPLAIN '.$this->query->statement_with_bindings))
+        return ! collect(DB::select('EXPLAIN '.$this->query->statement_with_bindings))
             ->contains(function ($value, $key) {
                 return $value->type === 'all' && $value->key === null;
             });
