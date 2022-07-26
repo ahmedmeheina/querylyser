@@ -65,6 +65,17 @@ class Generator
     {
         $scannedQueriesCount = $results->count();
         $passedQueriesCount = $results->count();
+
+        $passedQueriesCount = $results->filter(function ($result){
+            [$query , $checkresults] = $result;
+
+            return !$checkresults->contains(function ($check) {
+                return $check->passes === false;
+            });
+        })
+            ->count();
+
+
         $passedQueriesPercentatge = round($passedQueriesCount * 100 / $scannedQueriesCount);
 
         return '
