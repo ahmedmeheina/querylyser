@@ -10,13 +10,13 @@ class NPlusOne extends QueryCheck
 
     public function passes():bool
     {
-        $sameQuery = $this->query->statement === $this->query->previous()->statement;
+        $sameQuery = $this->query->statement === $this->query->previous()?->statement;
 
         if(!$sameQuery){
             return true;
         }
 
-        $differentBindings = $this->query->statement_with_bindings !== $this->query->previous()->statement_with_bindings;
+        $differentBindings = $this->query->statement_with_bindings !== $this->query->previous()?->statement_with_bindings;
 
         return !$differentBindings;
     }

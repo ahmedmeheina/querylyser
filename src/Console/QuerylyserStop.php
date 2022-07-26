@@ -47,13 +47,16 @@ class QuerylyserStop extends Command
 
         $checks = Querylyser::loadChecks();
 
-        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks){
-            dump($query->statement_with_bindings);
-            $checks->each(function ($checkClass) use ($checks, $query) {
-               $check = new $checkClass($query);
-                dump($check->passes(), $check->description, $check->fixRecommendation);
+        $results = collect();
+
+        $this->withProgressBar(LoggedQuery::all(), function ($query) use ($checks, $results){
+            $checkResults = $checks->map(function ($checkClass) use ($checks, $query) {
+                return new $checkClass($query);
             });
+            $results->push([$query , $checkResults]);
         });
+
+        Querylyser::generateReport($results);
 
         return 0;
     }
