@@ -12,12 +12,18 @@ You can install the package via composer:
 
 ```bash
 composer require ameheina/querylyser
+php artisan migrate
 ```
 
 ## Usage
 
+To start listening to queries
 ```php
-// Usage description here
+php artisan querylyser:start
+```
+To stop listening to queries && analyse results
+```php
+php artisan querylyser:stop
 ```
 
 ### Testing
